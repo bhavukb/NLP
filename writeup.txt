@@ -1,0 +1,11 @@
+Collaboration: Shubh Jaju, Naman Gupta, Japneet Singh
+
+The basic Structure is explained as followed:
+
+Preprocessing:
+	First, I expand the contractions. Then, I use a stop words list I created myself, and remove them. I also separate the words which have a '-' or a '/'. Finally, I remove 'no', 'nor' and 'not', and negate the next 3 words
+
+In the validation phase, the cross_val function is called.
+This splits the data into 5 parts, and gets validation scores for all of them, using the function "separation_control".
+This function runs as follows: In first separation, it splits the training data into 2 parts: those <= 3 (call it low), and those >= 4 (call it high). This way, the first separation is a binary classification, using a vectorization on the whole training data. 
+Next, it trains 2 classifiers for each separation (low and high). For testing, it first runs the first classifier, filters out the binary classification result, and uses the corresponding second classifier to get final result
